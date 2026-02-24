@@ -1,4 +1,6 @@
-export default async function handler(req, res) {
+const { Redis } = require('@upstash/redis');
+
+module.exports = async function handler(req, res) {
     // Only allow POST
     if (req.method !== 'POST') {
         res.setHeader('Allow', 'POST');
@@ -19,7 +21,6 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { Redis } = await import('@upstash/redis');
         const redis = new Redis({
             url: process.env.KV_REST_API_URL,
             token: process.env.KV_REST_API_TOKEN,
@@ -41,8 +42,6 @@ export default async function handler(req, res) {
 
         const total = await redis.scard('subscribers');
 
-        console.log(`✓ New subscriber: ${trimmed} (total: ${total})`);
-
         return res.status(201).json({
             message: "You're on the list! We'll be in touch within 48 hours.",
             total,
@@ -51,4 +50,4 @@ export default async function handler(req, res) {
         console.error('Subscribe error:', err);
         return res.status(500).json({ error: 'Something went wrong. Please try again.' });
     }
-}
+};

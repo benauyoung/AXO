@@ -1,10 +1,12 @@
-export default async function handler(req, res) {
+const { Redis } = require('@upstash/redis');
+
+module.exports = async function handler(req, res) {
     if (req.method !== 'GET') {
         res.setHeader('Allow', 'GET');
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    // Simple bearer auth — set ADMIN_SECRET in Vercel env vars
+    // Simple bearer auth
     const auth = req.headers['authorization'];
     const secret = process.env.ADMIN_SECRET;
     if (!secret || auth !== `Bearer ${secret}`) {
@@ -12,7 +14,6 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { Redis } = await import('@upstash/redis');
         const redis = new Redis({
             url: process.env.KV_REST_API_URL,
             token: process.env.KV_REST_API_TOKEN,
@@ -26,7 +27,6 @@ export default async function handler(req, res) {
             subscribers.push(meta || { email });
         }
 
-        // Sort newest first
         subscribers.sort((a, b) =>
             (b.subscribedAt || '').localeCompare(a.subscribedAt || '')
         );
@@ -36,4 +36,4 @@ export default async function handler(req, res) {
         console.error('Subscribers fetch error:', err);
         return res.status(500).json({ error: 'Failed to fetch subscribers.' });
     }
-}
+};
