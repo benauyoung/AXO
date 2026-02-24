@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXO — Make Your Website Readable by AI Agents</title>
+    <meta name="description"
+        content="AXO is server-side middleware that transforms your content into machine-readable, token-efficient formats — so AI agents load your site faster and recommend it more accurately.">
+    <meta name="theme-color" content="#0A0A0F">
+    <meta property="og:title" content="AXO — Make Your Website Readable by AI Agents">
+    <meta property="og:description"
+        content="Server-side middleware that cuts AI agent token costs by 80% and improves answer accuracy by 35%.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://axostack.dev">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner container">
+            <a href="#" class="nav-logo">
+                <span class="logo-text">AXO</span>
+                <span class="logo-badge">middleware</span>
+            </a>
+            <a href="#cta" class="nav-cta btn btn-sm">Join the Beta →</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero" id="hero">
+        <div class="hero-glow"></div>
+        <div class="container hero-inner">
+            <h1 class="hero-headline reveal">
+                Your website costs AI&nbsp;agents <span class="accent">5×&nbsp;more</span> than it should.
+            </h1>
+            <p class="hero-sub reveal reveal-d1">
+                AXO is server-side middleware that transforms your content into machine-readable, token-efficient
+                formats — so AI agents load your site faster, understand it better, and recommend it more accurately.
+            </p>
+            <a href="#cta" class="btn btn-primary btn-glow reveal reveal-d2">Join the Beta →</a>
+            <p class="hero-proof reveal reveal-d3">
+                Based on published benchmarks showing 80% token reduction and 35% accuracy improvement.
+            </p>
+        </div>
+    </header>
+
+    <!-- THE PROBLEM -->
+    <section class="section section-problem" id="problem">
+        <div class="container">
+            <span class="section-tag reveal">The Hidden Tax on Your Website</span>
+            <h2 class="section-headline reveal">
+                Every AI agent visiting your site is wasting your bandwidth and its own budget.
+            </h2>
+            <div class="prose reveal">
+                <p>AI agents now account for over half of all web traffic. When ChatGPT, Claude, Perplexity, or a
+                    shopping agent visits your site, it downloads your full HTML — navigation bars, JavaScript bundles,
+                    tracking pixels, cookie banners — and tries to extract meaning from the noise.</p>
+                <p>The result: a single blog post that's 3,000 words of useful content arrives as 16,000 tokens of HTML
+                    soup. The agent pays for all 16,000 tokens. You pay for the bandwidth. And the agent's answer about
+                    your product? Less accurate than it should be.</p>
+                <p>Meanwhile, your competitors who serve clean, structured content get cited more accurately and
+                    recommended more often. This is the new SEO — except the search engine is an AI agent, and it
+                    doesn't have a <span class="code-inline">"View Source"</span> button.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE NUMBERS -->
+    <section class="section section-stats" id="stats">
+        <div class="container">
+            <span class="section-tag reveal">What the Data Shows</span>
+            <h2 class="section-headline reveal">
+                The cost of doing nothing is measurable.
+            </h2>
+            <div class="stats-grid">
+                <div class="stat-card reveal">
+                    <span class="stat-number" data-target="80">0</span><span class="stat-symbol">%</span>
+                    <p class="stat-label">Token reduction when content is served as structured Markdown vs. raw HTML</p>
+                    <span class="stat-source">Cloudflare benchmark</span>
+                </div>
+                <div class="stat-card reveal reveal-d1">
+                    <span class="stat-number" data-target="35">0</span><span class="stat-symbol">%</span>
+                    <p class="stat-label">Improvement in AI answer accuracy with properly structured content</p>
+                    <span class="stat-source">RAG study</span>
+                </div>
+                <div class="stat-card reveal reveal-d2">
+                    <span class="stat-number" data-target="51">0</span><span class="stat-symbol">%</span>
+                    <p class="stat-label">Of all web traffic is now bots — AI agents are the fastest-growing segment</p>
+                    <span class="stat-source">Imperva 2025</span>
+                </div>
+                <div class="stat-card reveal reveal-d3">
+                    <span class="stat-prefix">$</span><span class="stat-number" data-target="238.7">0</span><span
+                        class="stat-symbol">B</span>
+                    <p class="stat-label">Estimated cost to websites from unoptimized bot traffic in 2024</p>
+                    <span class="stat-source">Industry estimate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section section-how" id="how">
+        <div class="container">
+            <span class="section-tag reveal">Three Lines of Config</span>
+            <h2 class="section-headline reveal">
+                AXO sits between your load balancer and origin. No code changes required.
+            </h2>
+
+            <!-- Flow diagram -->
+            <div class="flow-diagram reveal">
+                <div class="flow-node">
+                    <span class="flow-icon">🌐</span>
+                    <span class="flow-label">User / Agent</span>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node flow-node-accent">
+                    <span class="flow-icon">⚡</span>
+                    <span class="flow-label">AXO Middleware</span>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">
+                    <span class="flow-icon">🖥️</span>
+                    <span class="flow-label">Your Origin</span>
+                </div>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card reveal">
+                    <div class="step-num">01</div>
+                    <h3 class="step-title">Detect</h3>
+                    <p class="step-desc">AXO identifies AI agent requests by user-agent, Accept headers, and behavioral
+                        signals. Human visitors see your site normally.</p>
+                </div>
+                <div class="step-card reveal reveal-d1">
+                    <div class="step-num">02</div>
+                    <h3 class="step-title">Transform</h3>
+                    <p class="step-desc">Your HTML is converted into clean Markdown with structured metadata (JSON-LD,
+                        Schema.org). Boilerplate is stripped. Content is chunked for optimal retrieval.</p>
+                </div>
+                <div class="step-card reveal reveal-d2">
+                    <div class="step-num">03</div>
+                    <h3 class="step-title">Cache & Serve</h3>
+                    <p class="step-desc">Transformed content is cached at the edge. Subsequent agent requests are served
+                        instantly — reducing your origin load and the agent's token cost simultaneously.</p>
+                </div>
+            </div>
+
+            <div class="code-block reveal">
+                <div class="code-header">
+                    <span class="code-dot"></span>
+                    <span class="code-dot"></span>
+                    <span class="code-dot"></span>
+                    <span class="code-filename">nginx.conf — that's it</span>
+                </div>
+                <pre><code><span class="code-comment"># nginx.conf — that's it</span>
+<span class="code-keyword">location</span> / {
+    <span class="code-key">proxy_pass</span> <span class="code-value">http://axo-middleware:8080</span>;
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO THIS IS FOR -->
+    <section class="section section-who" id="who">
+        <div class="container">
+            <span class="section-tag reveal">Built For</span>
+            <h2 class="section-headline reveal">
+                If AI agents visit your site, AXO makes that traffic work for&nbsp;you.
+            </h2>
+            <div class="persona-grid">
+                <div class="persona-card reveal">
+                    <div class="persona-icon">📖</div>
+                    <h3 class="persona-title">Documentation Sites</h3>
+                    <p class="persona-desc">Your docs are already the most-crawled pages on your domain. AXO makes them
+                        the most useful — reducing token costs for developers' agents and improving answer accuracy for
+                        your API.</p>
+                </div>
+                <div class="persona-card reveal reveal-d1">
+                    <div class="persona-icon">🛒</div>
+                    <h3 class="persona-title">E-Commerce</h3>
+                    <p class="persona-desc">When a shopping agent asks "what's the best running shoe for marathons,"
+                        structured product data is what gets you recommended. AXO transforms your catalog into
+                        agent-native formats automatically.</p>
+                </div>
+                <div class="persona-card reveal reveal-d2">
+                    <div class="persona-icon">📰</div>
+                    <h3 class="persona-title">Publishers & Content Sites</h3>
+                    <p class="persona-desc">You're paying for bandwidth that generates no revenue. AXO gives you
+                        analytics on agent traffic and a path to monetize it — serve premium, structured content to
+                        agents that pay.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BETA FEATURES -->
+    <section class="section section-beta" id="beta">
+        <div class="container">
+            <span class="section-tag reveal">What's Included</span>
+            <h2 class="section-headline reveal">
+                Early access includes:
+            </h2>
+            <ul class="beta-list">
+                <li class="beta-item reveal">
+                    <span class="beta-check">✓</span>
+                    <span>Agent traffic analytics dashboard — see which AI agents visit, what they read, how
+                        often</span>
+                </li>
+                <li class="beta-item reveal reveal-d1">
+                    <span class="beta-check">✓</span>
+                    <span>Automatic HTML → Markdown transformation with metadata preservation</span>
+                </li>
+                <li class="beta-item reveal reveal-d2">
+                    <span class="beta-check">✓</span>
+                    <span>Edge caching with content-negotiation (agents get Markdown, humans get HTML)</span>
+                </li>
+                <li class="beta-item reveal reveal-d3">
+                    <span class="beta-check">✓</span>
+                    <span>Token savings report showing before/after cost impact</span>
+                </li>
+                <li class="beta-item reveal reveal-d4">
+                    <span class="beta-check">✓</span>
+                    <span>Direct line to the founding team to shape the product</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- EMAIL CAPTURE -->
+    <section class="section section-cta" id="cta">
+        <div class="container">
+            <div class="cta-card">
+                <h2 class="cta-headline reveal">
+                    The agentic web is here.<br>Is your site ready?
+                </h2>
+                <p class="cta-sub reveal reveal-d1">
+                    Join the beta. We'll show you what AI agents see when they visit your site — and what they're
+                    missing.
+                </p>
+                <form class="cta-form reveal reveal-d2" id="betaForm">
+                    <div class="form-group">
+                        <input type="email" id="emailInput" class="form-input" placeholder="you@company.com" required
+                            autocomplete="email">
+                        <button type="submit" class="btn btn-primary btn-glow form-btn">Get Early Access</button>
+                    </div>
+                    <div class="form-msg" id="formMsg"></div>
+                </form>
+                <p class="cta-trust reveal reveal-d3">
+                    No credit card. No commitment. We'll send you a free audit of your site's agent-readability within
+                    48 hours of signing up.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p class="footer-copy">© 2026 AXO</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="https://twitter.com/axostack" class="footer-link" target="_blank" rel="noopener">Twitter /
+                    X</a>
+            </div>
+            <p class="footer-attr">Backed by research from Cloudflare, Anthropic, and arXiv.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
