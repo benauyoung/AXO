@@ -1,4 +1,20 @@
-const { Redis } = require('@upstash/redis');
+async function redis(command, ...args) {
+    const url = process.env.KV_REST_API_URL;
+    const token = process.env.KV_REST_API_TOKEN;
+
+    const res = await fetch(`${url}`, {
+        method: 'POST',
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify([command, ...args]),
+    });
+
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    return data.result;
+}
 
 module.exports = async function handler(req, res) {
     if (req.method !== 'GET') {
@@ -6,7 +22,6 @@ module.exports = async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    // Simple bearer auth
     const auth = req.headers['authorization'];
     const secret = process.env.ADMIN_SECRET;
     if (!secret || auth !== `Bearer ${secret}`) {
@@ -14,17 +29,19 @@ module.exports = async function handler(req, res) {
     }
 
     try {
-        const redis = new Redis({
-            url: process.env.KV_REST_API_URL,
-            token: process.env.KV_REST_API_TOKEN,
-        });
-
-        const emails = await redis.smembers('subscribers');
+        const emails = await redis('SMEMBERS', 'subscribers');
         const subscribers = [];
 
         for (const email of emails) {
-            const meta = await redis.hgetall(`subscriber:${email}`);
-            subscribers.push(meta || { email });
+            const meta = await redis('HGETALL', `subscriber:${email}`);
+            // HGETALL returns flat array: [key, val, key, val, ...]
+            const obj = {};
+            if (Array.isArray(meta)) {
+                for (let i = 0; i < meta.length; i += 2) {
+                    obj[meta[i]] = meta[i + 1];
+                }
+            }
+            subscribers.push(obj.email ? obj : { email });
         }
 
         subscribers.sort((a, b) =>
