@@ -4,33 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AXO — Make Your Website Readable by AI Agents</title>
+    <title>AXO Eco — Reduce Your Website's Carbon Footprint</title>
     <meta name="description"
-        content="AXO is server-side middleware that transforms your content into machine-readable, token-efficient formats — so AI agents load your site faster and recommend it more accurately.">
+        content="AI agents are driving up your website's energy consumption. AXO reduces token payload and bandwidth by 80%, instantly cutting your server emissions.">
     <meta name="theme-color" content="#FFFFFF">
-    <meta property="og:title" content="AXO — Make Your Website Readable by AI Agents">
+    <meta property="og:title" content="AXO Eco — Cut Your Website's AI Emissions">
     <meta property="og:description"
-        content="Server-side middleware that cuts AI agent token costs by 80% and improves answer accuracy by 35%.">
+        content="Server-side middleware that reduces AI agent bandwidth by 80% and helps you hit your ESG targets.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://axostack.dev">
+    <meta property="og:url" content="https://axostack.dev/eco">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Eco overrides */
+        :root {
+            --accent: #059669;
+            /* Emerald Green */
+            --accent-hover: #047857;
+            --accent-light: #D1FAE5;
+        }
+
+        .hero {
+            background: radial-gradient(circle at top center, #D1FAE5 0%, var(--bg) 70%);
+        }
+
+        .code-title {
+            color: #059669;
+        }
+    </style>
 </head>
 
 <body>
     <!-- NAV -->
     <nav class="nav" id="nav">
         <div class="nav-inner container">
-            <a href="#" class="nav-logo">
-                <span class="logo-text">AXO</span>
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">AXO <span style="color:var(--accent); font-weight:500;">Eco</span></span>
             </a>
             <div class="nav-links">
                 <a href="#how" class="nav-link">How it works</a>
-                <a href="#who" class="nav-link">Use cases</a>
+                <a href="#impact" class="nav-link">Carbon Impact</a>
             </div>
             <a href="#cta" class="nav-cta btn btn-sm">Join Beta</a>
         </div>
@@ -40,45 +57,45 @@
     <header class="hero" id="hero">
         <div class="hero-bg"></div>
         <div class="container hero-inner">
-            <div class="hero-chip reveal">
-                <span class="chip-pulse"></span> Now in Early Access
+            <div class="hero-chip reveal" style="color:var(--accent); border-color:var(--accent-light);">
+                <span class="chip-pulse" style="background:var(--accent);"></span> ESG Initiative Ready
             </div>
             <h1 class="hero-headline reveal reveal-d1">
-                Your website costs AI&nbsp;agents <span class="accent">5×&nbsp;more</span> than it should.
+                AI agents are increasing your website's <span class="accent">carbon footprint</span>.
             </h1>
             <p class="hero-sub reveal reveal-d2">
-                AXO is server-side middleware that transforms your content into machine-readable, token-efficient
-                formats. AI agents load your site faster, understand it better, and recommend it more accurately.
+                Every bot scrape costs energy. AXO is server-side middleware that reduces your AI traffic bandwidth by
+                80%, instantly cutting your server emissions and lowering compute costs.
             </p>
             <div class="hero-actions reveal reveal-d3">
-                <a href="#cta" class="btn btn-primary">Get Early Access</a>
+                <a href="#cta" class="btn btn-primary">Start Reducing Emissions</a>
             </div>
         </div>
 
-        <!-- STATS BANNER (Moved right below hero) -->
+        <!-- STATS BANNER -->
         <div class="stats-banner reveal reveal-d4" id="stats">
             <div class="container">
-                <p class="stats-intro">The cost of doing nothing is measurable.</p>
+                <p class="stats-intro">The environmental impact is measurable.</p>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-icon">⚡</div>
+                        <div class="stat-icon" style="color:var(--accent);">🌱</div>
                         <div class="stat-value"><span class="stat-number" data-target="80">0</span><span
                                 class="stat-symbol">%</span></div>
-                        <p class="stat-label">Token reduction serving structured Markdown vs HTML</p>
-                        <span class="stat-source">Cloudflare benchmark</span>
+                        <p class="stat-label">Reduction in bandwidth and resulting server emissions per AI request</p>
+                        <span class="stat-source">AXO Benchmark</span>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon">🎯</div>
-                        <div class="stat-value"><span class="stat-number" data-target="35">0</span><span
-                                class="stat-symbol">%</span></div>
-                        <p class="stat-label">Improvement in AI answer accuracy with structured data</p>
-                        <span class="stat-source">RAG study</span>
+                        <div class="stat-icon" style="color:var(--accent);">🔋</div>
+                        <div class="stat-value"><span class="stat-number" data-target="13">0</span><span
+                                class="stat-symbol">k</span></div>
+                        <p class="stat-label">Tokens saved per average page load by stripping HTML bloat</p>
+                        <span class="stat-source">Average compute saved</span>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon">🤖</div>
+                        <div class="stat-icon" style="color:var(--accent);">📈</div>
                         <div class="stat-value"><span class="stat-number" data-target="51">0</span><span
                                 class="stat-symbol">%</span></div>
-                        <p class="stat-label">Of web traffic is bots — AI agents are the fastest growing</p>
+                        <p class="stat-label">Of web traffic is bots — driving unnecessary energy consumption</p>
                         <span class="stat-source">Imperva 2025</span>
                     </div>
                 </div>
@@ -87,23 +104,22 @@
     </header>
 
     <!-- THE PROBLEM -->
-    <section class="section section-problem" id="problem">
+    <section class="section section-problem" id="impact">
         <div class="container container-sm">
             <div class="section-header text-center reveal">
-                <h2 class="section-headline">The Hidden Tax on Your Website</h2>
-                <p class="section-sub">Every AI agent visiting your site is wasting your bandwidth and its own budget.
-                </p>
+                <h2 class="section-headline">The Hidden Environmental Tax</h2>
+                <p class="section-sub">Data centers aren't carbon neutral. Bandwidth isn't free.</p>
             </div>
             <div class="prose reveal reveal-d1">
-                <p>AI agents now account for over half of all web traffic. When ChatGPT, Claude, Perplexity, or a
-                    shopping agent visits your site, it downloads your full HTML — navigation bars, JavaScript bundles,
-                    tracking pixels, cookie banners — and tries to extract meaning from the noise.</p>
-                <p>The result: a single blog post that's 3,000 words of useful content arrives as 16,000 tokens of HTML
-                    soup. The agent pays for all 16,000 tokens. You pay for the bandwidth. And the agent's answer about
-                    your product? Less accurate than it should be.</p>
-                <div class="prose-highlight">
-                    <p>Meanwhile, competitors who serve clean, structured content get cited more accurately and
-                        recommended more often. This is the new SEO.</p>
+                <p>When an AI agent from OpenAI, Anthropic, or an e-commerce crawler visits your site, it downloads your
+                    entire HTML structure. That includes navigation bars, dense CSS classes, redundant inline styles,
+                    and JavaScript that the agent can't even execute.</p>
+                <p>A standard 3,000-word article arrives as roughly 16,000 tokens of HTML soup. Transferring, parsing,
+                    and storing that extraneous data consumes vast amounts of energy at both your origin server and the
+                    AI provider's data centers.</p>
+                <div class="prose-highlight" style="border-color:var(--accent);">
+                    <p>AXO strips the bloat, delivering raw, structured Markdown to agents. It drops a 16,000 token
+                        payload down to 3,000 tokens. That's an 80% drop in energy consumption per request.</p>
                 </div>
             </div>
         </div>
@@ -113,8 +129,8 @@
     <section class="section section-how bg-slate" id="how">
         <div class="container">
             <div class="section-header text-center reveal">
-                <h2 class="section-headline">Three Lines of Config</h2>
-                <p class="section-sub">AXO sits between your load balancer and origin. No code changes required.</p>
+                <h2 class="section-headline">Effortless ESG Compliance</h2>
+                <p class="section-sub">Deploy in minutes. Hit your sustainability targets today.</p>
             </div>
 
             <div class="how-grid">
@@ -122,28 +138,25 @@
                     <div class="step-card reveal">
                         <div class="step-icon">1</div>
                         <div class="step-content">
-                            <h3 class="step-title">Detect</h3>
-                            <p class="step-desc">AXO identifies AI agent requests by user-agent, Accept headers, and
-                                behavioral
-                                signals. Human visitors see your site normally.</p>
+                            <h3 class="step-title">Detect Bot Traffic</h3>
+                            <p class="step-desc">AXO passively monitors incoming requests, routing only recognized AI
+                                crawler agents to the optimization engine.</p>
                         </div>
                     </div>
                     <div class="step-card reveal reveal-d1">
                         <div class="step-icon">2</div>
                         <div class="step-content">
-                            <h3 class="step-title">Transform</h3>
-                            <p class="step-desc">Your HTML is converted into clean Markdown with structured metadata
-                                (JSON-LD,
-                                Schema.org). Boilerplate is stripped instantly.</p>
+                            <h3 class="step-title">Compress to Markdown</h3>
+                            <p class="step-desc">Heavy visual HTML is transformed into semantic, lightweight Markdown.
+                                Data footprint drops immediately.</p>
                         </div>
                     </div>
                     <div class="step-card reveal reveal-d2">
                         <div class="step-icon">3</div>
                         <div class="step-content">
-                            <h3 class="step-title">Cache & Serve</h3>
-                            <p class="step-desc">Transformed content is cached at the edge. Subsequent agent requests
-                                are served
-                                instantly — reducing origin load and token costs.</p>
+                            <h3 class="step-title">Cache at the Edge</h3>
+                            <p class="step-desc">The tiny Markdown payloads are cached globally. Origin server load and
+                                compute emissions vanish.</p>
                         </div>
                     </div>
                 </div>
@@ -174,67 +187,66 @@
     <section class="section section-who" id="who">
         <div class="container">
             <div class="section-header text-center reveal">
-                <h2 class="section-headline">Built for the Agentic Web</h2>
-                <p class="section-sub">If AI agents visit your site, AXO makes that traffic work for you.</p>
+                <h2 class="section-headline">Who Uses AXO Eco</h2>
+                <p class="section-sub">Companies committed to reducing their digital footprint.</p>
             </div>
 
             <div class="persona-grid">
                 <div class="persona-card reveal">
                     <div class="persona-icon-wrapper"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
                         </svg></div>
-                    <h3 class="persona-title">Documentation Sites</h3>
-                    <p class="persona-desc">Docs are the most-crawled pages on your domain. AXO makes them the most
-                        useful — reducing token costs for developers' agents and improving answer accuracy.</p>
+                    <h3 class="persona-title">Enterprise IT</h3>
+                    <p class="persona-desc">Meet strict ESG reporting requirements by measurably reducing data transfer
+                        and server compute overhead.</p>
                 </div>
                 <div class="persona-card reveal reveal-d1">
                     <div class="persona-icon-wrapper"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="9" cy="21" r="1" />
-                            <circle cx="20" cy="21" r="1" />
-                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
                         </svg></div>
-                    <h3 class="persona-title">E-Commerce</h3>
-                    <p class="persona-desc">When a shopping agent asks "what's the best running shoe," structured
-                        product data gets you recommended. AXO creates agent-native formats automatically.</p>
+                    <h3 class="persona-title">Documentation Sites</h3>
+                    <p class="persona-desc">Heavy crawler traffic on massive docs unneccesarily burns energy. AXO makes
+                        your open-source docs truly green.</p>
                 </div>
                 <div class="persona-card reveal reveal-d2">
                     <div class="persona-icon-wrapper"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                            <polyline points="14 2 14 8 20 8" />
-                            <line x1="16" y1="13" x2="8" y2="13" />
-                            <line x1="16" y1="17" x2="8" y2="17" />
-                            <polyline points="10 9 9 9 8 9" />
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                            <path d="M2 12h20" />
                         </svg></div>
-                    <h3 class="persona-title">Publishers</h3>
-                    <p class="persona-desc">You're paying for bandwidth that generates no revenue. AXO gives you
-                        analytics on agent traffic and a path to monetize it via premium structured feeds.</p>
+                    <h3 class="persona-title">Global E-Commerce</h3>
+                    <p class="persona-desc">Crawled by hundreds of shopping agents daily. Cut the bandwidth tax while
+                        improving how AI recommends you.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BETA FEATURES & CTA -->
+    <!-- CTA -->
     <section class="section section-cta bg-slate" id="cta">
         <div class="container">
             <div class="cta-wrapper reveal">
                 <div class="cta-content">
-                    <h2 class="cta-headline">The agentic web is here. Is your site ready?</h2>
-                    <p class="cta-sub">Join the beta. We'll show you what AI agents see when they visit your site — and
-                        what they're missing.</p>
+                    <h2 class="cta-headline">Reduce your bandwidth waste today.</h2>
+                    <p class="cta-sub">Join the beta. We'll send you an analysis of your current AI agent emissions and
+                        how much you can cut.</p>
 
                     <ul class="beta-list">
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg> Agent traffic analytics dashboard</li>
+                            </svg> Carbon impact dashboard for ESG reporting</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg> Automatic HTML to Markdown transformation</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg> Token savings & accuracy reports</li>
+                            </svg> Edge caching for zero-origin load</li>
                     </ul>
                 </div>
 
@@ -243,11 +255,11 @@
                         <label for="emailInput" class="form-label">Work Email</label>
                         <input type="email" id="emailInput" class="form-input" placeholder="you@company.com" required
                             autocomplete="email">
-                        <button type="submit" class="btn btn-primary btn-full">Get Early Access</button>
+                        <button type="submit" class="btn btn-primary btn-full">Get Impact Report</button>
                         <div class="form-msg" id="formMsg"></div>
                     </form>
                     <p class="cta-trust">
-                        No credit card. No commitment. Free site audit included.
+                        No credit card. Free emissions audit included.
                     </p>
                 </div>
             </div>
@@ -258,14 +270,13 @@
     <footer class="footer">
         <div class="container footer-inner">
             <div class="footer-brand">
-                <span class="logo-text">AXO</span>
+                <span class="logo-text">AXO <span style="color:var(--accent); font-weight:500;">Eco</span></span>
                 <p class="footer-copy">© 2026 AXO Middleware.</p>
             </div>
             <div class="footer-links">
-                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="index.html" class="footer-link">Main Site</a>
                 <a href="https://twitter.com/axostack" class="footer-link" target="_blank" rel="noopener">Twitter /
                     X</a>
-                <a href="eco.html" class="footer-link highlight-link">Environmental Impact</a>
             </div>
         </div>
     </footer>
