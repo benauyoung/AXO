@@ -381,6 +381,45 @@
             color: #991B1B;
         }
 
+        /* Random Wiki button */
+        .url-input-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .btn-random-wiki {
+            flex-shrink: 0;
+            padding: 10px 16px;
+            background: #FEF3C7;
+            color: #92400E;
+            border: 1px solid #FCD34D;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-random-wiki:hover {
+            background: #FDE68A;
+            border-color: #F59E0B;
+            transform: translateY(-1px);
+        }
+
+        .btn-random-wiki:active {
+            transform: translateY(0);
+        }
+
+        .btn-random-wiki:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         /* Mobile responsive for demo page */
         @media (max-width: 768px) {
             .demo-hero {
@@ -695,8 +734,13 @@
     <div class="demo-form-section">
         <div class="container">
             <div class="demo-form">
-                <input type="text" id="urlInput" class="form-input"
-                    placeholder="en.wikipedia.org/wiki/Large_language_model" autocomplete="off">
+                <div class="url-input-row">
+                    <input type="text" id="urlInput" class="form-input" style="margin-bottom:0;flex:1;"
+                        placeholder="en.wikipedia.org/wiki/Large_language_model" autocomplete="off">
+                    <button class="btn-random-wiki" id="randomWikiBtn" title="Random Wikipedia article">
+                        🎲 Random Wiki
+                    </button>
+                </div>
                 <div class="demo-input-row">
                     <input type="text" id="promptInput" class="form-input"
                         placeholder="What is the main topic of this page?">
@@ -705,8 +749,8 @@
                     </button>
                 </div>
                 <p class="demo-hint">
-                    Paste any public URL — no need to type https://. Try a content-rich page to see the biggest
-                    difference.
+                    Paste any public URL — no need to type https://. Or hit
+                    <strong>🎲 Random Wiki</strong> to try a random Wikipedia article.
                 </p>
             </div>
             <div class="demo-error" id="demoError"></div>
@@ -774,6 +818,30 @@
         const resultsGrid = document.getElementById('resultsGrid')
         const savingsCard = document.getElementById('savingsCard')
         const demoEmpty = document.getElementById('demoEmpty')
+        const randomWikiBtn = document.getElementById('randomWikiBtn')
+
+        /* Random Wikipedia article */
+        randomWikiBtn.addEventListener('click', async () => {
+            randomWikiBtn.disabled = true
+            randomWikiBtn.textContent = '⏳ Loading…'
+            try {
+                const res = await fetch(
+                    'https://en.wikipedia.org/api/rest_v1/page/random/summary'
+                )
+                const data = await res.json()
+                urlInput.value = data.content_urls.desktop.page
+                promptInput.value = `Summarize this article about "${data.title}"`
+                // Brief highlight flash
+                urlInput.style.borderColor = '#F59E0B'
+                setTimeout(() => urlInput.style.borderColor = '', 600)
+            } catch {
+                urlInput.value = 'https://en.wikipedia.org/wiki/Special:Random'
+                promptInput.value = 'What is this article about?'
+            } finally {
+                randomWikiBtn.disabled = false
+                randomWikiBtn.textContent = '🎲 Random Wiki'
+            }
+        })
 
         function fmt(n) { return Number(n).toLocaleString() }
         function fmtKb(b) { return (b / 1000).toFixed(1) + 'k chars' }
