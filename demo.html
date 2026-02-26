@@ -602,8 +602,8 @@
     <div class="demo-form-section">
         <div class="container">
             <div class="demo-form">
-                <input type="url" id="urlInput" class="form-input"
-                    placeholder="https://en.wikipedia.org/wiki/Large_language_model" autocomplete="off">
+                <input type="text" id="urlInput" class="form-input"
+                    placeholder="en.wikipedia.org/wiki/Large_language_model" autocomplete="off">
                 <div class="demo-input-row">
                     <input type="text" id="promptInput" class="form-input"
                         placeholder="What is the main topic of this page?">
@@ -612,9 +612,8 @@
                     </button>
                 </div>
                 <p class="demo-hint">
-                    Try a Wikipedia article — the HTML vs Markdown difference is usually 10× or more.<br>
-                    Markdown is fetched via <a href="https://r.jina.ai" target="_blank" rel="noopener">r.jina.ai</a>,
-                    the same technique AXO uses at the edge.
+                    Paste any public URL — no need to type https://. Try a content-rich page to see the biggest
+                    difference.
                 </p>
             </div>
             <div class="demo-error" id="demoError"></div>
@@ -968,9 +967,15 @@
         }
 
         async function runCompare() {
-            const url = urlInput.value.trim()
+            let url = urlInput.value.trim()
             const prompt = promptInput.value.trim()
             if (!url || !prompt) return
+
+            // Auto-prepend https:// if no protocol
+            if (!/^https?:\/\//i.test(url)) {
+                url = 'https://' + url
+                urlInput.value = url
+            }
 
             hideError()
             setLoading(true)
