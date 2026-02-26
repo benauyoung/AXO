@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude_ai_Vercel__list_teams",
+      "mcp__claude_ai_Vercel__list_projects",
+      "mcp__claude_ai_Vercel__list_deployments",
+      "Bash(cd:*)",
+      "mcp__claude_ai_Vercel__web_fetch_vercel_url",
+      "mcp__claude_ai_Vercel__get_deployment_build_logs",
+      "mcp__claude_ai_Vercel__get_runtime_logs",
+      "mcp__claude_ai_Vercel__get_project",
+      "Bash(cd \"C:/Users/Benjamin/Desktop/Projects/AXO\" && vercel link --project axo --scope bens-projects-6fbea0fe --yes 2>&1)",
+      "Bash(cd \"C:/Users/Benjamin/Desktop/Projects/AXO\" && echo \"AIzaSyDyx9nAAOcBbOhTfOKcax7RbynVz5I5Sz0\" | vercel env add GEMINI_API_KEY production 2>&1)",
+      "Bash(cd \"C:/Users/Benjamin/Desktop/Projects/AXO\" && vercel --prod --yes 2>&1)"
+    ]
+  }
+}

@@ -176,6 +176,217 @@
             margin-top: 2px;
         }
 
+        /* ── Cost Breakdown ─────────────────────────── */
+        .metrics-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .metric-panel {
+            background: #fff;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .metric-panel-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 18px;
+            border-bottom: 1px solid #F1F5F9;
+            font-weight: 600;
+            font-size: 14px;
+            font-family: var(--font-display);
+        }
+
+        .metric-panel-icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+        }
+
+        .metric-panel-body {
+            padding: 18px;
+        }
+
+        /* Cost comparison table */
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .cost-table th {
+            text-align: left;
+            font-weight: 600;
+            font-family: var(--font-display);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-secondary);
+            padding: 0 10px 8px 0;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .cost-table th:not(:first-child) {
+            text-align: right;
+        }
+
+        .cost-table td {
+            padding: 7px 10px 7px 0;
+            color: var(--text-secondary);
+            vertical-align: middle;
+            font-family: var(--font-mono);
+            font-size: 12px;
+        }
+
+        .cost-table td:first-child {
+            font-family: var(--font-body, 'Inter', sans-serif);
+            font-size: 13px;
+            color: var(--text-primary);
+        }
+
+        .cost-table td:not(:first-child) {
+            text-align: right;
+        }
+
+        .cost-table tr:last-child td {
+            border-top: 1px solid #F1F5F9;
+            padding-top: 10px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .cost-tag-html {
+            color: #D97706;
+        }
+
+        .cost-tag-md {
+            color: #059669;
+        }
+
+        .cost-winner {
+            margin-top: 12px;
+            padding: 10px 12px;
+            background: #F0FDF4;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #065F46;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Efficiency gauges */
+        .eff-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .eff-row {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .eff-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .eff-label {
+            font-size: 13px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .eff-values {
+            display: flex;
+            gap: 12px;
+            font-size: 12px;
+            font-family: var(--font-mono);
+        }
+
+        .eff-val-html {
+            color: #D97706;
+        }
+
+        .eff-val-md {
+            color: #059669;
+        }
+
+        .eff-desc {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .dual-bar-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .dual-bar-track {
+            height: 5px;
+            background: #F1F5F9;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .dual-bar-fill-html {
+            height: 100%;
+            border-radius: 99px;
+            background: #F59E0B;
+            transition: width .6s ease;
+        }
+
+        .dual-bar-fill-md {
+            height: 100%;
+            border-radius: 99px;
+            background: #10B981;
+            transition: width .6s ease;
+        }
+
+        .score-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            border-radius: 99px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .score-high {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+
+        .score-mid {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .score-low {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+
+        @media (max-width: 640px) {
+            .metrics-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Savings */
         .savings-card {
             background: #fff;
@@ -293,8 +504,18 @@
         }
 
         @keyframes dot-bounce {
-            0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
-            40% { transform: scale(1); opacity: 1; }
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0.6);
+                opacity: 0.4;
+            }
+
+            40% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .loading-label {
@@ -326,10 +547,21 @@
         }
 
         @media (max-width: 640px) {
-            .results-grid { grid-template-columns: 1fr; }
-            .savings-card { flex-wrap: wrap; }
-            .savings-bars { min-width: 100%; }
-            .demo-input-row { flex-direction: column; }
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .savings-card {
+                flex-wrap: wrap;
+            }
+
+            .savings-bars {
+                min-width: 100%;
+            }
+
+            .demo-input-row {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -370,20 +602,11 @@
     <div class="demo-form-section">
         <div class="container">
             <div class="demo-form">
-                <input
-                    type="url"
-                    id="urlInput"
-                    class="form-input"
-                    placeholder="https://en.wikipedia.org/wiki/Large_language_model"
-                    autocomplete="off"
-                >
+                <input type="url" id="urlInput" class="form-input"
+                    placeholder="https://en.wikipedia.org/wiki/Large_language_model" autocomplete="off">
                 <div class="demo-input-row">
-                    <input
-                        type="text"
-                        id="promptInput"
-                        class="form-input"
-                        placeholder="What is the main topic of this page?"
-                    >
+                    <input type="text" id="promptInput" class="form-input"
+                        placeholder="What is the main topic of this page?">
                     <button class="btn btn-primary" id="compareBtn" style="white-space:nowrap;padding:0 28px;">
                         Compare →
                     </button>
@@ -416,6 +639,10 @@
             <div id="resultsContainer" style="display:none;">
                 <div class="results-grid" id="resultsGrid"></div>
                 <div id="savingsCard"></div>
+                <div class="metrics-row" id="metricsRow">
+                    <div id="costPanel"></div>
+                    <div id="effPanel"></div>
+                </div>
             </div>
 
             <!-- Empty state -->
@@ -437,7 +664,8 @@
             </div>
             <div class="footer-links">
                 <a href="#" class="footer-link">Privacy Policy</a>
-                <a href="https://twitter.com/axostack" class="footer-link" target="_blank" rel="noopener">Twitter / X</a>
+                <a href="https://twitter.com/axostack" class="footer-link" target="_blank" rel="noopener">Twitter /
+                    X</a>
                 <a href="eco.html" class="footer-link highlight-link">Environmental Impact</a>
             </div>
         </div>
@@ -457,11 +685,178 @@
 
         function fmt(n) { return Number(n).toLocaleString() }
         function fmtKb(b) { return (b / 1000).toFixed(1) + 'k chars' }
+        // Gemini 2.5 Flash pricing (USD / token)
+        const PRICE_IN = 0.075 / 1_000_000  // $0.075 / 1M input tokens
+        const PRICE_OUT = 0.30 / 1_000_000  // $0.30  / 1M output tokens
+        // CDN egress: ~$0.085 / GB  →  per byte
+        const PRICE_CDN = 0.085 / 1_000_000_000
+
+        function apiCost(tokens) {
+            return tokens.prompt * PRICE_IN + tokens.response * PRICE_OUT
+        }
+        function transferCost(bytes) { return bytes * PRICE_CDN }
+        function fmtUSD(v) {
+            if (v < 0.0001) return '$' + v.toExponential(2)
+            return '$' + v.toFixed(6)
+        }
         function fmtCost(t) { return '$' + ((t / 1_000_000) * 0.075).toFixed(5) }
         function esc(s) {
             return String(s)
                 .replace(/&/g, '&amp;').replace(/</g, '&lt;')
                 .replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+        }
+
+        /* ── Cost Breakdown panel ──────────────────────── */
+        function renderCostPanel(html, markdown) {
+            const hTrans = transferCost(html.contentLength)
+            const mTrans = transferCost(markdown.contentLength)
+            const hAPI = apiCost(html.tokens)
+            const mAPI = apiCost(markdown.tokens)
+            const hTotal = hTrans + hAPI
+            const mTotal = mTrans + mAPI
+            const saved = hTotal - mTotal
+            const savedPct = hTotal > 0 ? Math.round((saved / hTotal) * 100) : 0
+            const winner = mTotal < hTotal
+
+            const row = (label, hVal, mVal) => `
+                <tr>
+                    <td>${label}</td>
+                    <td class="cost-tag-html">${fmtUSD(hVal)}</td>
+                    <td class="cost-tag-md">${fmtUSD(mVal)}</td>
+                </tr>`
+
+            const winnerMsg = winner
+                ? `✅ Markdown saves <strong>${fmtUSD(Math.abs(saved))}</strong> per request (${savedPct}% cheaper)`
+                : '⚠️ HTML was the cheaper option for this page'
+
+            return `
+                <div class="metric-panel">
+                    <div class="metric-panel-header">
+                        <div class="metric-panel-icon" style="background:#EFF6FF">💸</div>
+                        Cost Breakdown
+                    </div>
+                    <div class="metric-panel-body">
+                        <table class="cost-table">
+                            <thead>
+                                <tr>
+                                    <th>Cost component</th>
+                                    <th class="cost-tag-html">HTML</th>
+                                    <th class="cost-tag-md">Markdown</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${row('Transfer (CDN egress)', hTrans, mTrans)}
+                                ${row('API · input tokens', html.tokens.prompt * PRICE_IN, markdown.tokens.prompt * PRICE_IN)}
+                                ${row('API · output tokens', html.tokens.response * PRICE_OUT, markdown.tokens.response * PRICE_OUT)}
+                                <tr>
+                                    <td>Total per request</td>
+                                    <td class="cost-tag-html">${fmtUSD(hTotal)}</td>
+                                    <td class="cost-tag-md">${fmtUSD(mTotal)}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="cost-winner">${winnerMsg}</div>
+                    </div>
+                </div>`
+        }
+
+        /* ── Information Efficiency panel ─────────────── */
+        function scoreBadge(score) {
+            if (score >= 70) return `<span class="score-badge score-high">High ✦</span>`
+            if (score >= 40) return `<span class="score-badge score-mid">Medium</span>`
+            return `<span class="score-badge score-low">Low</span>`
+        }
+
+        function renderEffPanel(html, markdown) {
+            // Signal ratio: how much of the raw content made it into the answer
+            const hSig = html.contentLength > 0
+                ? (html.answer.length / html.contentLength) * 100 : 0
+            const mSig = markdown.contentLength > 0
+                ? (markdown.answer.length / markdown.contentLength) * 100 : 0
+            const sigMax = Math.max(hSig, mSig) || 1
+
+            // Answer richness: output tokens per 1k input tokens
+            const hRich = html.tokens.prompt > 0
+                ? (html.tokens.response / html.tokens.prompt) * 1000 : 0
+            const mRich = markdown.tokens.prompt > 0
+                ? (markdown.tokens.response / markdown.tokens.prompt) * 1000 : 0
+            const richMax = Math.max(hRich, mRich) || 1
+
+            // Content compression (Markdown vs HTML)
+            const compression = html.contentLength > 0
+                ? Math.round((1 - markdown.contentLength / html.contentLength) * 100) : 0
+
+            // Composite efficiency score out of 100:
+            // 50% compression benefit  +  50% answer richness ratio
+            const mScore = Math.min(100, Math.round(
+                (compression / 100) * 50 +
+                (mRich / richMax) * 50
+            ))
+            const hScore = Math.min(100, Math.round(
+                0 +
+                (hRich / richMax) * 50
+            ))
+
+            const metric = (label, desc, hVal, mVal, hW, mW, hStr, mStr) => `
+                <div class="eff-row">
+                    <div class="eff-label-row">
+                        <span class="eff-label">${label}</span>
+                        <span class="eff-values">
+                            <span class="eff-val-html">${hStr}</span>
+                            <span class="eff-val-md">${mStr}</span>
+                        </span>
+                    </div>
+                    <div class="eff-desc">${desc}</div>
+                    <div class="dual-bar-wrap">
+                        <div class="dual-bar-track"><div class="dual-bar-fill-html" style="width:${hW}%"></div></div>
+                        <div class="dual-bar-track"><div class="dual-bar-fill-md"   style="width:${mW}%"></div></div>
+                    </div>
+                </div>`
+
+            return `
+                <div class="metric-panel">
+                    <div class="metric-panel-header">
+                        <div class="metric-panel-icon" style="background:#F5F3FF">📊</div>
+                        Information Efficiency
+                    </div>
+                    <div class="metric-panel-body">
+                        <div class="eff-grid">
+                            ${metric(
+                'Content signal ratio',
+                'Answer length ÷ raw content size — how targeted the source was',
+                hSig, mSig,
+                Math.round((hSig / sigMax) * 100),
+                Math.round((mSig / sigMax) * 100),
+                hSig.toFixed(2) + '%',
+                mSig.toFixed(2) + '%'
+            )}
+                            ${metric(
+                'Answer richness',
+                'Output tokens per 1k input tokens — how much the model generated relative to what it read',
+                hRich, mRich,
+                Math.round((hRich / richMax) * 100),
+                Math.round((mRich / richMax) * 100),
+                hRich.toFixed(1) + ' /1k',
+                mRich.toFixed(1) + ' /1k'
+            )}
+                            <div class="eff-row" style="border-top:1px solid #F1F5F9;padding-top:12px;">
+                                <div class="eff-label-row">
+                                    <span class="eff-label">Composite efficiency score</span>
+                                    <span class="eff-values">
+                                        <span class="eff-val-html">${hScore}/100</span>
+                                        <span class="eff-val-md">${mScore}/100</span>
+                                    </span>
+                                </div>
+                                <div class="eff-desc" style="display:flex;gap:6px;margin-top:4px;">
+                                    HTML: ${scoreBadge(hScore)}&nbsp;&nbsp;Markdown: ${scoreBadge(mScore)}
+                                </div>
+                                <div class="eff-desc" style="margin-top:6px">
+                                    Content compressed by <strong>${compression}%</strong> from HTML → Markdown
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`
         }
 
         function setLoading(on) {
@@ -535,7 +930,7 @@
                    </div>
                    <div class="savings-sub">
                         HTML cost: ${fmtCost(html.tokens.total)} &nbsp;·&nbsp;
-                        Markdown cost: ${fmtCost(markdown.tokens.total)} per call at Gemini 2.0 Flash pricing
+                         Markdown cost: ${fmtCost(markdown.tokens.total)} per call at Gemini 2.5 Flash pricing
                    </div>`
                 : `<div class="savings-headline">HTML was smaller in this case</div>
                    <div class="savings-sub">This page may already be minimal HTML — the savings vary by site.</div>`
@@ -563,6 +958,10 @@
                         </div>
                     </div>
                 </div>`
+
+            // Inject new metric panels
+            document.getElementById('costPanel').innerHTML = renderCostPanel(html, markdown)
+            document.getElementById('effPanel').innerHTML = renderEffPanel(html, markdown)
 
             demoEmpty.style.display = 'none'
             resultsContainer.style.display = 'block'

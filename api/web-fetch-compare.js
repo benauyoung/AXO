@@ -68,7 +68,7 @@ module.exports = async function handler(req, res) {
       ? rawMd.slice(0, MAX_LENGTH) + '\n\n[truncated at 30,000 characters]'
       : rawMd
 
-    const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`
+    const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`
     const SYSTEM = "You are a helpful web research assistant. Analyze the provided webpage content and answer the user's question clearly and concisely."
 
     const makeBody = (content, label) =>
@@ -86,18 +86,44 @@ module.exports = async function handler(req, res) {
       })
 
     // Call Gemini for both formats in parallel
-    const [htmlGemini, mdGemini] = await Promise.all([
+    const [htmlGeminiRaw, mdGeminiRaw] = await Promise.allSettled([
       fetch(GEMINI_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: makeBody(htmlContent, 'raw HTML source'),
-      }).then(r => r.json()),
+        signal: AbortSignal.timeout(30_000),
+      }),
       fetch(GEMINI_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: makeBody(mdContent, 'markdown version (converted via r.jina.ai)'),
-      }).then(r => r.json()),
+        signal: AbortSignal.timeout(30_000),
+      }),
     ])
+
+    if (htmlGeminiRaw.status === 'rejected') {
+      console.error('Gemini HTML call failed:', htmlGeminiRaw.reason)
+      return res.status(500).json({ error: `Gemini HTML call failed: ${htmlGeminiRaw.reason?.message ?? 'Unknown'}` })
+    }
+    if (mdGeminiRaw.status === 'rejected') {
+      console.error('Gemini MD call failed:', mdGeminiRaw.reason)
+      return res.status(500).json({ error: `Gemini MD call failed: ${mdGeminiRaw.reason?.message ?? 'Unknown'}` })
+    }
+
+    const htmlGeminiText = await htmlGeminiRaw.value.text()
+    const mdGeminiText = await mdGeminiRaw.value.text()
+
+    if (!htmlGeminiRaw.value.ok) {
+      const err = JSON.parse(htmlGeminiText)
+      return res.status(502).json({ error: err?.error?.message ?? 'Gemini API error (HTML call)' })
+    }
+    if (!mdGeminiRaw.value.ok) {
+      const err = JSON.parse(mdGeminiText)
+      return res.status(502).json({ error: err?.error?.message ?? 'Gemini API error (Markdown call)' })
+    }
+
+    const htmlGemini = JSON.parse(htmlGeminiText)
+    const mdGemini = JSON.parse(mdGeminiText)
 
     const getAnswer = g => g.candidates?.[0]?.content?.parts?.[0]?.text ?? '(no response)'
     const getTokens = g => ({
