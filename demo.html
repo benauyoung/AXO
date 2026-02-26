@@ -886,7 +886,7 @@
                 </tr>`
 
             const winnerMsg = winner
-                ? `✅ Markdown saves <strong>${fmtUSD(Math.abs(saved))}</strong> per request (${savedPct}% cheaper)`
+                ? `✅ Markdown saves <strong>${fmtUSD(Math.abs(saved))}</strong> per request (${savedPct}% cheaper) — <strong>$${(Math.abs(saved) * 1_000_000).toLocaleString(undefined, { maximumFractionDigits: 0 })}</strong> per 1M loads`
                 : '⚠️ HTML was the cheaper option for this page'
 
             return `
@@ -912,6 +912,11 @@
                                     <td>Total per request</td>
                                     <td class="cost-tag-html">${fmtUSD(hTotal)}</td>
                                     <td class="cost-tag-md">${fmtUSD(mTotal)}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Per 1M page loads</strong></td>
+                                    <td class="cost-tag-html"><strong>$${(hTotal * 1_000_000).toLocaleString(undefined, { maximumFractionDigits: 0 })}</strong></td>
+                                    <td class="cost-tag-md"><strong>$${(mTotal * 1_000_000).toLocaleString(undefined, { maximumFractionDigits: 0 })}</strong></td>
                                 </tr>
                             </tbody>
                         </table>
