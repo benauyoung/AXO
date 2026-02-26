@@ -381,9 +381,99 @@
             color: #991B1B;
         }
 
-        @media (max-width: 640px) {
+        /* Mobile responsive for demo page */
+        @media (max-width: 768px) {
+            .demo-hero {
+                padding: 100px 0 28px;
+            }
+
+            .demo-hero .section-headline {
+                font-size: 1.6rem;
+            }
+
+            .demo-hero .section-sub {
+                font-size: 0.95rem;
+            }
+
+            .demo-form-section {
+                padding: 24px 0;
+            }
+
+            .demo-form {
+                padding: 0 4px;
+            }
+
+            .demo-input-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .demo-input-row .btn {
+                width: 100%;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .savings-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 14px;
+            }
+
+            .savings-bars {
+                min-width: unset;
+                width: 100%;
+            }
+
             .metrics-row {
                 grid-template-columns: 1fr;
+            }
+
+            .metric-panel-body {
+                padding: 14px;
+            }
+
+            .cost-table th,
+            .cost-table td {
+                padding: 5px 6px 5px 0;
+            }
+
+            .cost-table td:first-child {
+                font-size: 12px;
+            }
+
+            .result-card-body {
+                padding: 14px;
+            }
+
+            .result-answer {
+                font-size: 13px;
+                max-height: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .demo-hero {
+                padding: 90px 0 20px;
+            }
+
+            .demo-hero .section-headline {
+                font-size: 1.35rem;
+            }
+
+            .form-input {
+                font-size: 14px;
+                padding: 10px 12px;
+            }
+
+            .savings-headline {
+                font-size: 14px;
+            }
+
+            .savings-sub {
+                font-size: 12px;
             }
         }
 
@@ -573,11 +663,14 @@
             <a href="/" class="nav-logo">
                 <span class="logo-text">AXO</span>
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="/#how" class="nav-link">How it works</a>
                 <a href="/#who" class="nav-link">Use cases</a>
                 <a href="/demo.html" class="nav-link" style="color:var(--accent);font-weight:600;">Live Demo</a>
             </div>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
             <a href="/#cta" class="btn btn-sm">Join Beta</a>
         </div>
     </nav>

@@ -13,6 +13,23 @@
     window.addEventListener('scroll', handleNavScroll, { passive: true });
     handleNavScroll();
 
+    /* ---------- Mobile hamburger menu ---------- */
+    const hamburger = document.getElementById('navHamburger');
+    const navLinks = document.getElementById('navLinks');
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navLinks.classList.toggle('open');
+        });
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('open');
+            });
+        });
+    }
+
     /* ---------- Reveal on scroll ---------- */
     const revealEls = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver(

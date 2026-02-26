@@ -28,11 +28,14 @@
             <a href="#" class="nav-logo">
                 <span class="logo-text">AXO</span>
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="#how" class="nav-link">How it works</a>
                 <a href="#who" class="nav-link">Use cases</a>
                 <a href="/demo.html" class="nav-link" style="color:var(--accent);font-weight:600;">Live Demo</a>
             </div>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
             <a href="#cta" class="nav-cta btn btn-sm">Join Beta</a>
         </div>
     </nav>
@@ -100,7 +103,8 @@
                     trigger the exact same database queries, React rendering, and massive HTML payloads as a human.</p>
                 <p>They download your tracking pixels, your cookie banners, your massive CSS bundles, and your heavy
                     navigation megamenus. They immediately throw away 80% of that data to find the text hidden inside.
-                    <strong>But AWS still charges you for 100% of the outbound transfer.</strong></p>
+                    <strong>But AWS still charges you for 100% of the outbound transfer.</strong>
+                </p>
                 <div class="prose-highlight">
                     <p>AXO intercepts these bots. Instead of letting them hit your origin for 16,000 bytes of HTML, we
                         serve them a raw 3,000-byte Markdown file heavily cached at the edge. Your compute costs drop
